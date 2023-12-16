@@ -7,7 +7,7 @@ import img from '../assets/plus.svg'
 import Forme from '../Form/LoginForm';
 import NewLogin from '../Form/NewLogin';
 
-
+        
 export default function Nav() {
   return (
     <>
