@@ -1,35 +1,37 @@
-import React from 'react'
-import Second from './Second/Second'
-import Crousel from './Third/Crousel'
-import Nav from './First/Nav'
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify'
+import React from "react";
+import Second from "./Second/Second";
+import Crousel from "./Third/Crousel";
+import Nav from "./First/Nav";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
-
-
-
-
-
-
-
+import {
+  BrowserRouter,
+  Route,
+  Router,
+  createBrowserRouter,
+} from "react-router-dom";
 
 function App() {
-
-
   return (
-   <>
-   
-   <Nav/>
-   <Second/>
-  <Crousel/>
-  
- 
+    <>
+      {/* <BrowserRouter>
+        <Router>
+          <Route>
+            <Nav />
+            <Second />
+            <Crousel />
+          </Route>
+        </Router>
 
+      </BrowserRouter> */}
+      <Nav />
+      <Second />
+      <Crousel />
 
-  
-  <ToastContainer />
-   </>
-  )
+      <ToastContainer />
+    </>
+  );
 }
 
-export default App
+export default App;
