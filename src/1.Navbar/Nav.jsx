@@ -88,7 +88,8 @@ export default function Nav() {
               <span className="ms-1">Become a Seller</span>
             </Button>
           </div>
-          <div className="ms-5 m-0 p-0">
+          <div className="
+          ms-5 m-0 p-0">
             <UncontrolledDropdown group>
               <DropdownToggle className="bi bi-three-dots-vertical bg-transparent text-black border-0"></DropdownToggle>
               <DropdownMenu className="mt-2 ">
