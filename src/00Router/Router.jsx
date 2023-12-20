@@ -10,7 +10,7 @@ export default function Router() {
     <BrowserRouter>
     <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route path='*' element={<Errorpage/>}/> 
+        <Route path='*' Component={Errorpage}/> 
     </Routes>
     </BrowserRouter>
     </>

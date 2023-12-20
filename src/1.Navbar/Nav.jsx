@@ -32,7 +32,7 @@ export default function Nav() {
             className="sarch d-flex align-items-center  py-2 col-5 rounded-2  "
             style={{ backgroundColor: "#f0f5ff" }}
           >
-            <Search color="black" style={{ marginLeft: "-5px" }} />
+            <Search color="black" style={{ marginLeft: "5px" }} />
             <input
               type="text"
               className="bg-transparent w-100"
