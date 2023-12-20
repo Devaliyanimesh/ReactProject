@@ -1,5 +1,16 @@
 import React from "react";
 import logo from "./../assets/logo.svg";
+import fkplush from "./../assets/fkplus.svg";
+import Dwonload from "./../assets/download.svg";
+import profile from "./../assets/profile.svg";
+import orders from "./../assets/orders.svg";
+import giftCard from "./../assets/giftCard.svg";
+import rewards from "./../assets/rewards.svg";
+import notification from "./../assets/notification.svg";
+import helpcenter from "./../assets/helpcenter.svg";
+import advertise from "./../assets/advertise.svg";
+import downloadApp from "./../assets/downloadApp.svg";
+
 import { Search, ShoppingCart } from "lucide-react";
 import {
   Button,
@@ -12,13 +23,13 @@ import {
 export default function Nav() {
   return (
     <>
-      <div className="">
-        <div className="row mt-2 align-items-center ">
+  
+        <div className=" d-flex bg-white p-2 align-items-center ">
           <div className="logo col-2">
             <img src={logo} alt="" />
           </div>
           <div
-            className="sarch d-flex align-items-center  py-2 col-4 rounded-2  "
+            className="sarch d-flex align-items-center  py-2 col-5 rounded-2  "
             style={{ backgroundColor: "#f0f5ff" }}
           >
             <Search color="black" style={{ marginLeft: "-5px" }} />
@@ -28,33 +39,80 @@ export default function Nav() {
               placeholder="Seach for Products,Brand and More"
             />
           </div>
-          <div className=" col-1 ms-3">
+          <div className=" col-1 ms-1 m-0 p-0 ">
             <UncontrolledDropdown group>
               <DropdownToggle className="bi bi-person-circle rounded-3 bg-transparent text-black border-0">
                 <span className="ms-2">User</span>
               </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem>Some Action</DropdownItem>
-                <DropdownItem text>Dropdown Item Text</DropdownItem>
-                <DropdownItem>Foo Action</DropdownItem>
-                <DropdownItem>Bar Action</DropdownItem>
-                <DropdownItem>Quo Action</DropdownItem>
+              <DropdownMenu className="mt-2">
+                <div className="d-flex border border-top-0 ">
+                  <DropdownItem>New User?</DropdownItem>
+                  <DropdownItem className="text-primary fw-bold">
+                    Login
+                  </DropdownItem>
+                </div>
+                <DropdownItem className="p-2">
+                  <img src={profile} alt="" />
+                  <span className="ms-2">My Profile</span>
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={fkplush} alt="" />
+                  <span className="ms-2">Flipkart Plush Zone</span>
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={orders} alt="" />
+                  <span className="ms-2">Order</span>Order
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={Dwonload} alt="" />
+                  <span className="ms-2">Wishlist</span>
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={giftCard} alt="" />
+                  <span className="ms-2">Rewards</span>
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={rewards} alt="" />
+                  <span className="ms-2">Gift card</span>
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </div>
-          <div className="col-1 ms-2">
-         <Button className="bi bi-cart bg-transparent text-black border-0"> <span className="ms-1">Cart</span></Button>
+          <div className="col-1 ms-1 m-0 p-0">
+            <Button className="bi bi-cart bg-transparent text-black border-0">
+              <span className="ms-1">Cart</span>
+            </Button>
           </div>
-          <div className="col-2  ms-2">
-          <Button className="bi bi-shop bg-transparent text-black border-0"> <span className="ms-1">Become a Seller</span></Button>
+          <div className="col-2  ms-1 m-0 p-0">
+            <Button className="bi bi-shop bg-transparent text-black border-0">
+              <span className="ms-1">Become a Seller</span>
+            </Button>
           </div>
-          <div className="col-1 ms-2">
-          <Button className="bi bi-three-dots-vertical bg-transparent text-black border-0"> </Button>
+          <div className="ms-5 m-0 p-0">
+            <UncontrolledDropdown group>
+              <DropdownToggle className="bi bi-three-dots-vertical bg-transparent text-black border-0"></DropdownToggle>
+              <DropdownMenu className="mt-2 ">
+                <DropdownItem className="p-2">
+                  <img src={notification} alt="" />
+                  <span className="ms-2">Notification Preferences</span>
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={helpcenter} alt="" />
+                  <span className="ms-2">24x7 Customer Care</span>
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={advertise} alt="" />
+                  <span className="ms-2">Advertise</span>
+                </DropdownItem>
+                <DropdownItem className="p-2">
+                  <img src={downloadApp} alt="" />
+                  <span className="ms-2">Download App</span>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
           </div>
-        
         </div>
-      </div>
+
     </>
   );
 }
