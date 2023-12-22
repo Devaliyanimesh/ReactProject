@@ -50,7 +50,7 @@ export default function NewUser() {
             type="password"
           />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button className="w-100">Submit</Button>
       </Form>
     </>
   );
