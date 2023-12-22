@@ -3,7 +3,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 
 import Errorpage from '../0.Errorpage/Errorpage'
 import Main from '../0.MainPages/Main'
-import Login from '../2.Login/Login'
+import Login from '../0.Errorpage/2.Login/Login'
 
 export default function Router() {
   return (

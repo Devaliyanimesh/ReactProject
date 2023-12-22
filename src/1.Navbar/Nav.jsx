@@ -23,8 +23,8 @@ import {
   ModalHeader,
   UncontrolledDropdown,
 } from "reactstrap";
-import Login from "../2.Login/Login";
-import NewUser from "../2.Login/NewUser";
+import Login from "../0.Errorpage/2.Login/Login";
+import NewUser from "../0.Errorpage/2.Login/NewUser";
 
 export default function Nav() {
   const [modal, setModal] = useState(false);
@@ -132,7 +132,6 @@ export default function Nav() {
           </UncontrolledDropdown>
         </div>
       </div>
-
       <div>
         <Modal isOpen={modal} toggle={toggle} className="w-50">
           <ModalHeader toggle={toggle}>Login Here</ModalHeader>
