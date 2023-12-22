@@ -4,7 +4,7 @@ import { Input, Label, Button, Form, FormGroup } from "reactstrap";
 export default function NewUser() {
   return (
     <>
-      <Form>
+      <Form autoComplete="off">
         <FormGroup>
           <Label for="exampleEmail">FirstName</Label>
           <Input
@@ -50,7 +50,7 @@ export default function NewUser() {
             type="password"
           />
         </FormGroup>
-        <Button className="w-100">Submit</Button>
+        <Button color="danger" className="w-100">Submit</Button>
       </Form>
     </>
   );

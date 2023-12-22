@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useRef, useState } from "react";
 import logo from "./../assets/logo.svg";
 import fkplush from "./../assets/fkplus.svg";
 import Dwonload from "./../assets/download.svg";
@@ -24,12 +24,18 @@ import {
   UncontrolledDropdown,
 } from "reactstrap";
 import Login from "../2.Login/Login";
+import NewUser from "../2.Login/NewUser";
 
 export default function Nav() {
-  let navigate = useNavigate();
   const [modal, setModal] = useState(false);
+  const [smodal, setModall] = useState(false);
 
   const toggle = () => setModal(!modal);
+  const stoggle = () => {
+    setModall(!smodal);
+
+    
+  };
 
   return (
     <>
@@ -55,7 +61,9 @@ export default function Nav() {
             </DropdownToggle>
             <DropdownMenu className="mt-2">
               <div className="d-flex border border-top-0 ">
-                <DropdownItem>New User?</DropdownItem>
+                <DropdownItem onClick={stoggle} className="hide" >
+                  New User?
+                </DropdownItem>
                 <DropdownItem className="text-primary fw-bold" onClick={toggle}>
                   Login
                 </DropdownItem>
@@ -129,7 +137,15 @@ export default function Nav() {
         <Modal isOpen={modal} toggle={toggle} className="w-50">
           <ModalHeader toggle={toggle}>Login Here</ModalHeader>
           <ModalBody>
-            <Login/>
+            <Login />
+          </ModalBody>
+        </Modal>
+      </div>
+      <div>
+        <Modal isOpen={smodal} toggle={stoggle} className="w-25">
+          <ModalHeader toggle={stoggle}>Login Here</ModalHeader>
+          <ModalBody>
+            <NewUser />
           </ModalBody>
         </Modal>
       </div>
