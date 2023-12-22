@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import Nav from "../1.Navbar/Nav";
+
 // let [value,setValue]=useState({email:"",password:""})
 // let [data,setData]=useState([])
 // let ChekData=()=>{
@@ -34,7 +34,7 @@ export default function Login() {
             onChange={(e)=>setValue({...value,password:e.target.value})}
           />
         </FormGroup>
-        <Button  className="w-100 bg-danger" onClick={() => ChekData()}>Submit</Button>
+        <Button  className="w-100 bg-danger" >Submit</Button>
       </Form>
 
     </>
