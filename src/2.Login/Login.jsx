@@ -1,27 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
-// let [value,setValue]=useState({email:"",password:""})
-// let [data,setData]=useState([])
-// let ChekData=()=>{
-//   setData([...data,value])
-//   console.log(data);
 
-// }
 
-export default function Login() {
+export default function Loginn({value , ChekData}) {
+
   return (
     <>
       <Form autoComplete="off">
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input
-            id="exampleEmail"
-            name="email"
-            placeholder="with a placeholder"
-            type="email"
-            onChange={(e)=>setValue({...value,email:e.target.value})}
+            placeholder="email"
+            type="text"
+            onChange={(e) => setValue({ ...value, email: e.target.value })}
           />
         </FormGroup>
         <FormGroup>
@@ -31,12 +24,13 @@ export default function Login() {
             name="password"
             placeholder="password placeholder"
             type="password"
-            onChange={(e)=>setValue({...value,password:e.target.value})}
+            onChange={(e) => setValue({ ...value, password: e.target.value })}
           />
         </FormGroup>
-        <Button  className="w-100 bg-danger" >Submit</Button>
+        <Button className="w-100 bg-danger" onClick={() => ChekData()}>
+          Submit
+        </Button>
       </Form>
-
     </>
   );
 }

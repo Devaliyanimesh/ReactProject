@@ -1,16 +1,14 @@
 import React from "react";
-
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import Router from "./00Router/Router";
+import Nav from "./1.Navbar/Nav";
 
 
 function App() {
   return (
     <>
-      {/* <Main /> */}
-      <Router />
-  
+      <Nav />
+
       <ToastContainer />
     </>
   );

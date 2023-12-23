@@ -1,4 +1,4 @@
-import { React, useRef, useState } from "react";
+import {React,useState} from "react";
 import logo from "./../assets/logo.svg";
 import fkplush from "./../assets/fkplus.svg";
 import Dwonload from "./../assets/download.svg";
@@ -10,35 +10,24 @@ import notification from "./../assets/notification.svg";
 import helpcenter from "./../assets/helpcenter.svg";
 import advertise from "./../assets/advertise.svg";
 import downloadApp from "./../assets/downloadApp.svg";
-import { useNavigate } from "react-router-dom";
-import { Search, ShoppingCart } from "lucide-react";
+
+import { Search } from "lucide-react";
 import {
   Button,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
   UncontrolledDropdown,
 } from "reactstrap";
-import Login from "../0.Errorpage/2.Login/Login";
-import NewUser from "../0.Errorpage/2.Login/NewUser";
+import LoginModal from "../2.Login/Modal/LoginModal";
 
 export default function Nav() {
-  const [modal, setModal] = useState(false);
-  const [smodal, setModall] = useState(false);
+  const [login, setLogin] = useState(false);
 
-  const toggle = () => setModal(!modal);
-  const stoggle = () => {
-    setModall(!smodal);
-
-    
-  };
-
+  const loginToggle = () => setLogin(!login);
   return (
     <>
+      <LoginModal  modal={login} toggle={loginToggle} />
       <div className=" d-flex bg-white p-2 align-items-center ">
         <div className="logo col-2">
           <img src={logo} alt="" />
@@ -61,10 +50,8 @@ export default function Nav() {
             </DropdownToggle>
             <DropdownMenu className="mt-2">
               <div className="d-flex border border-top-0 ">
-                <DropdownItem onClick={stoggle} className="hide" >
-                  New User?
-                </DropdownItem>
-                <DropdownItem className="text-primary fw-bold" onClick={toggle}>
+                <DropdownItem className="hide">New User?</DropdownItem>
+                <DropdownItem className="text-primary fw-bold" onClick={loginToggle}>
                   Login
                 </DropdownItem>
               </div>
@@ -132,24 +119,6 @@ export default function Nav() {
           </UncontrolledDropdown>
         </div>
       </div>
-      <div>
-        <Modal isOpen={modal} toggle={toggle} className="w-50">
-          <ModalHeader toggle={toggle}>Login Here</ModalHeader>
-          <ModalBody>
-            <Login />
-          </ModalBody>
-        </Modal>
-      </div>
-      <div>
-        <Modal isOpen={smodal} toggle={stoggle} className="w-25">
-          <ModalHeader toggle={stoggle}>Login Here</ModalHeader>
-          <ModalBody>
-            <NewUser />
-          </ModalBody>
-        </Modal>
-      </div>
     </>
   );
 }
-
-//
