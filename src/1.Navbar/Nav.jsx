@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import logo from "./../assets/logo.svg";
 import fkplush from "./../assets/fkplus.svg";
 import Dwonload from "./../assets/download.svg";
@@ -19,21 +19,14 @@ import {
   DropdownToggle,
   UncontrolledDropdown,
 } from "reactstrap";
-import LoginModal from "../2.Login/Modal/LoginModal";
-import NewuserModal from "../2.Login/Modal/NewuserModal";
 
 export default function Nav() {
-  const [login, setLogin] = useState(false);
-
-  const loginToggle = () => setLogin(!login);
-
-  const [newLogin, setNewlogin] = useState(false);
-
-  const newuserToggle = () => setNewlogin(!newLogin);
+  
   return (
     <>
-      <LoginModal  modal={login} toggle={loginToggle} />
-      <NewuserModal modal={newLogin} toggle={newuserToggle}/>
+      <Button color="danger" onClick={toggle}>
+          Register
+        </Button>
       <div className=" d-flex bg-white p-2 align-items-center ">
         <div className="logo col-2">
           <img src={logo} alt="" />
@@ -56,8 +49,8 @@ export default function Nav() {
             </DropdownToggle>
             <DropdownMenu className="mt-2">
               <div className="d-flex border border-top-0 ">
-                <DropdownItem className="hide" onClick={newuserToggle}>New User?</DropdownItem>
-                <DropdownItem className="text-primary fw-bold" onClick={loginToggle}>
+                <DropdownItem className="hide">Register ?</DropdownItem>
+                <DropdownItem className="text-primary fw-bold">
                   Login
                 </DropdownItem>
               </div>
