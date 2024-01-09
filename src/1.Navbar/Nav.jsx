@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import logo from "./../assets/logo.svg";
 import fkplush from "./../assets/fkplus.svg";
 import Dwonload from "./../assets/download.svg";
@@ -19,14 +19,34 @@ import {
   DropdownToggle,
   UncontrolledDropdown,
 } from "reactstrap";
+import Register from "../2.Login/Register";
+import Login from "../2.Login/Login";
 
 export default function Nav() {
-  
+  let [locallength, setLocalLen] = useState(null);
+  const [registerModal, setRegisterModal] = useState(false);
+  const togglee = () => {
+    setRegisterModal(!registerModal);
+  };
+
+  const [login, setLgin] = useState(false);
+  const loginToggle = () => setLgin(!login);
+
+  useEffect(() => {
+    let localcheck = localStorage.getItem("local") || [];
+    let length = localcheck.length;
+    setLocalLen(length);
+  }, []);
+  console.log("--->", locallength);
+  const logoutData = () => {
+    localStorage.removeItem("local");
+    localStorage.removeItem("add");
+  };
   return (
     <>
-      <Button color="danger" onClick={toggle}>
-          Register
-        </Button>
+      <Register modal={registerModal} toggle={togglee} />
+      <Login modal={login} toggle={loginToggle} />
+
       <div className=" d-flex bg-white p-2 align-items-center ">
         <div className="logo col-2">
           <img src={logo} alt="" />
@@ -49,10 +69,24 @@ export default function Nav() {
             </DropdownToggle>
             <DropdownMenu className="mt-2">
               <div className="d-flex border border-top-0 ">
-                <DropdownItem className="hide">Register ?</DropdownItem>
-                <DropdownItem className="text-primary fw-bold">
-                  Login
+                <DropdownItem className="hide" onClick={togglee}>
+                  Register ?
                 </DropdownItem>
+                {locallength > 0 || locallength !==0 ? (
+                  <DropdownItem
+                    className="text-primary fw-bold"
+                    onClick={logoutData}
+                  >
+                    Logout
+                  </DropdownItem>
+                ) : (
+                  <DropdownItem
+                    className="text-primary fw-bold"
+                    onClick={loginToggle}
+                  >
+                    Login
+                  </DropdownItem>
+                )}
               </div>
               <DropdownItem className="p-2">
                 <img src={profile} alt="" />

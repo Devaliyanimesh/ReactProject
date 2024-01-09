@@ -11,25 +11,27 @@ import {
   Input,
 } from "reactstrap";
 
-function Login(args) {
+function Login({ modal, toggle }) {
   let [value, setValue] = useState({
     email: "",
     password: "",
   });
   let [data, setData] = useState([]);
   let [locall, setLocall] = useState(null);
-  const [modal, setModal] = useState(false);
+  useEffect(() => {
+    let json = localStorage.getItem("add");
+    let normal = JSON.parse(json);
+    setLocall(normal);
+  }, []);
 
-  const toggle = () => setModal(!modal);
   const dataHandler = (e) => {
     e.preventDefault();
-    let emailmatch=locall?.some?.((e)=> e?.email === value?.email )
-    let passwordmatch=locall?.some?.((e)=> e?.password === value?.password )
+    let emailmatch = locall?.some?.((e) => e?.email === value?.email);
+    let passwordmatch = locall?.some?.((e) => e?.password === value?.password);
 
-    if (!emailmatch || !passwordmatch ) {
-      toast.error("your email is not match please register")
-    }
-    else if (value.email === " " || value.password === "") {
+    if (!emailmatch || !passwordmatch) {
+      toast.error("your email is not match please register");
+    } else if (value.email === " " || value.password === "") {
       toast.error("please fill up data");
     } else {
       setData([...data, value]);
@@ -37,39 +39,14 @@ function Login(args) {
         email: "",
         password: "",
       });
-      setModal(!modal);
       localStorage.setItem("local", JSON.stringify([...data, value]));
+      toggle();
     }
   };
-  const clearData = () => {
-    localStorage.removeItem("local");
-  };
 
-  useEffect(() => {
-    let data = localStorage.length;
-  }, []);
-
-  useEffect(() => {
-    let json = localStorage.getItem("add");
-    let normal = JSON.parse(json);
-    setLocall(normal);
-  }, []);
-  
   return (
     <div>
-    
-      {data == 0 ? (
-        <Button color="danger" onClick={toggle}>
-          Login
-        </Button> 
-        
-      ) : (
-        <Button color="danger" onClick={clearData}>
-          Logout
-        </Button>
-      )}
-
-      <Modal isOpen={modal} toggle={toggle} {...args}>
+      <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
           <Form>

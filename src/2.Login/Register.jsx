@@ -12,9 +12,8 @@ import {
   Input,
 } from "reactstrap";
 
-export default function Register() {
+export default function Register({ modal, toggle }) {
   let [local, setLocal] = useState(null);
-
   useEffect(() => {
     let json = localStorage.getItem("add");
     let normal = JSON.parse(json);
@@ -82,29 +81,13 @@ export default function Register() {
       toast.success("data save");
       setNamesave([...namesave, name]);
       localStorage.setItem("add", JSON.stringify([...namesave, name]));
-      setModal(!modal);
+      toggle();
     }
   };
-  const [modal, setModal] = useState(false);
 
-  const toggle = () => {
-    if (!modal) {
-      setName({
-        email: "",
-        password: "",
-        gender: "",
-        hobby: [],
-        userType: "user",
-      });
-    }
-    setModal(!modal);
-  };
   return (
     <>
       <div>
-        <Button color="danger" onClick={toggle}>
-          Register
-        </Button>
         <Modal isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Modal title</ModalHeader>
           <ModalBody>
